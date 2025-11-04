@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"data": {"name": "data-ddb39102ea2f14f4dbad378652c23da1"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "variable", "type": "nominal"}, "tooltip": [{"field": "i", "type": "quantitative"}, {"field": "value", "type": "quantitative"}, {"field": "variable", "type": "nominal"}], "x": {"field": "i", "type": "quantitative"}, "y": {"field": "value", "type": "quantitative"}}, "height": 150, "name": "view_1", "title": "SGD evolution of weights", "width": 300}, {"data": {"name": "data-4f8574e9f0449529a989377b33731e6c"}, "mark": {"type": "line"}, "encoding": {"color": {"field": "variable", "type": "nominal"}, "tooltip": [{"field": "i", "type": "quantitative"}, {"field": "value", "type": "quantitative"}, {"field": "variable", "type": "nominal"}], "x": {"field": "i", "type": "quantitative"}, "y": {"field": "value", "type": "quantitative"}}, "height": 150, "name": "view_2", "title": "PA evolution of accuracy", "width": 350}], "params": [{"name": "param_1", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_1"]}, {"name": "param_2", "select": {"type": "interval", "encodings": ["x", "y"]}, "bind": "scales", "views": ["view_2"]}], "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-ddb39102ea2f14f4dbad378652c23da1": [{"i": 475, "variable": "c1", "value": -5.961270274554318}, {"i": 1425, "variable": "c1", "value": -9.544591846758859}, {"i": 2375, "variable": "c1", "value": -9.648345072370834}, {"i": 475, "variable": "c2", "value": -8.003957382573795}, {"i": 1425, "variable": "c2", "value": -10.120010111492899}, {"i": 2375, "variable": "c2", "value": -9.637819232423494}, {"i": 475, "variable": "c3", "value": -9.92616312736545}, {"i": 1425, "variable": "c3", "value": -12.20956147863693}, {"i": 2375, "variable": "c3", "value": -8.655894776535867}, {"i": 475, "variable": "c4", "value": -7.055483744639648}, {"i": 1425, "variable": "c4", "value": -8.308541018692956}, {"i": 2375, "variable": "c4", "value": -2.6808412475763124}, {"i": 475, "variable": "c5", "value": -8.155101469440302}, {"i": 1425, "variable": "c5", "value": -14.135728050509377}, {"i": 2375, "variable": "c5", "value": -8.411051376442764}, {"i": 475, "variable": "c6", "value": -4.179503992773884}, {"i": 1425, "variable": "c6", "value": -7.780373404116837}, {"i": 2375, "variable": "c6", "value": -1.3426507208530227}, {"i": 475, "variable": "c7", "value": 0.15505971234183943}, {"i": 1425, "variable": "c7", "value": -2.5974117895166366}, {"i": 2375, "variable": "c7", "value": -1.6551847195230636}, {"i": 475, "variable": "c8", "value": 1.4255040043748708}, {"i": 1425, "variable": "c8", "value": -0.9277570571110529}, {"i": 2375, "variable": "c8", "value": -0.5837523306903403}, {"i": 475, "variable": "c9", "value": 1.3395897232127811}, {"i": 1425, "variable": "c9", "value": -3.1887319837205537}, {"i": 2375, "variable": "c9", "value": 1.8465001069290738}], "data-4f8574e9f0449529a989377b33731e6c": [{"i": 475, "variable": "mod_sgd", "value": 0.47368421052631576}, {"i": 1425, "variable": "mod_sgd", "value": 0.4968421052631579}, {"i": 2375, "variable": "mod_sgd", "value": 0.40421052631578946}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
